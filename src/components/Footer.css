@@ -1,0 +1,12 @@
+footer {
+  text-align: center;
+  padding: 40px 24px;
+  border-top: 1px solid var(--border);
+  color: var(--muted);
+  font-family: var(--mono);
+  font-size: .82rem;
+  position: relative;
+  z-index: 1;
+}
+footer .heart { color: var(--p3); }
+footer .name  { color: var(--p); }

@@ -1,0 +1,106 @@
+#projects {
+  padding: 120px 60px;
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+.projects-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+}
+
+.project-card {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  padding: 28px;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  position: relative;
+  overflow: hidden;
+  transition: border-color .3s, box-shadow .3s;
+  opacity: 0;
+  transform: translateY(30px);
+}
+.project-card.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+.project-card:hover {
+  border-color: rgba(168, 85, 247, .45);
+  box-shadow: 0 20px 60px rgba(168, 85, 247, .12);
+}
+
+/* Radial mouse-follow glow */
+.card-glow {
+  position: absolute; inset: 0;
+  background: radial-gradient(circle at var(--mx, 50%) var(--my, 50%), rgba(168,85,247,.08), transparent 60%);
+  opacity: 0;
+  transition: opacity .3s;
+  pointer-events: none;
+  border-radius: 16px;
+}
+.project-card:hover .card-glow { opacity: 1; }
+
+.card-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.folder-icon { font-size: 1.6rem; }
+
+.card-links {
+  display: flex;
+  gap: 14px;
+}
+.card-links a {
+  color: var(--muted);
+  display: flex;
+  align-items: center;
+  transition: color .2s, transform .2s;
+}
+.card-links a:hover { color: var(--p); transform: translateY(-2px); }
+
+.card-title {
+  font-size: 1.08rem;
+  font-weight: 600;
+  color: var(--white);
+}
+
+.card-desc {
+  font-size: .9rem;
+  color: var(--muted);
+  line-height: 1.65;
+  flex-grow: 1;
+}
+
+.card-tech {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 4px;
+}
+.card-tech span {
+  font-family: var(--mono);
+  font-size: .72rem;
+  color: var(--p);
+  background: rgba(168, 85, 247, .08);
+  border: 1px solid rgba(168, 85, 247, .2);
+  border-radius: 4px;
+  padding: 3px 8px;
+}
+
+.projects-cta {
+  text-align: center;
+  margin-top: 48px;
+}
+
+@media (max-width: 1024px) {
+  .projects-grid { grid-template-columns: repeat(2, 1fr); }
+}
+@media (max-width: 700px) {
+  #projects { padding: 80px 24px; }
+  .projects-grid { grid-template-columns: 1fr; }
+}
